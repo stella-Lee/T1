@@ -17,11 +17,11 @@ class CalcIntegrationTest {
 
     @BeforeEach
     public void setUp() {
-/*        adder = new Adder();
+        adder = new Adder();
         flipper = new Flipper();
-        subtractor = new Subtractor(adder, flipper);*/
-        flipper = Mockito.mock(IFlipper.class);
-        subtractor = Mockito.mock(ISubtractor.class);
+        subtractor = new Subtractor(adder, flipper);
+//        flipper = Mockito.mock(IFlipper.class);
+//        subtractor = Mockito.mock(ISubtractor.class);
         //multiplier = new Multiplier(adder, flipper);
         divider = new Divider(flipper, subtractor); // 단순 구현이면 mock 없이도 테스트 가능
     }
@@ -29,17 +29,17 @@ class CalcIntegrationTest {
     @Test
     @DisplayName("음수 연산 조합 테스트: 부호 반전 포함")
     public void testNegativeOperations() {
-        //assertEquals(-2, subtractor.subtract(3, 5));
-        //assertEquals(-6, multiplier.multiply(-2, 3));
+        assertEquals(-2, subtractor.subtract(3, 5));
+        assertEquals(-6, multiplier.multiply(-2, 3));
         assertEquals(2, divider.divide(-6, -3));
     }
 
     @Test
     @DisplayName("경계값 테스트: 0과 1에 대한 연산")
     public void testZeroAndOne() {
-        //assertEquals(0, multiplier.multiply(0, 100));
-        //assertEquals(100, multiplier.multiply(1, 100));
-        //assertEquals(0, subtractor.subtract(0, 0));
+        assertEquals(0, multiplier.multiply(0, 100));
+        assertEquals(100, multiplier.multiply(1, 100));
+        assertEquals(0, subtractor.subtract(0, 0));
         assertEquals(1, divider.divide(100, 100));
     }
 
