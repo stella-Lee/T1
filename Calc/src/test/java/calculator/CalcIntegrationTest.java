@@ -20,9 +20,9 @@ class CalcIntegrationTest {
         adder = new Adder();
         flipper = new Flipper();
         subtractor = new Subtractor(adder, flipper);
-//        flipper = Mockito.mock(IFlipper.class);
-//        subtractor = Mockito.mock(ISubtractor.class);
-        //multiplier = new Multiplier(adder, flipper);
+        flipper = Mockito.mock(IFlipper.class);
+        subtractor = Mockito.mock(ISubtractor.class);
+        multiplier = new Multiplier(adder, flipper);
         divider = new Divider(flipper, subtractor); // 단순 구현이면 mock 없이도 테스트 가능
     }
 
