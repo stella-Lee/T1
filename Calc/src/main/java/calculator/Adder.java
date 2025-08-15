@@ -7,5 +7,4 @@ public class Adder implements IAdder {
 		// TODO Auto-generated method stub	
 		return a+b;
 	}
-
 }
